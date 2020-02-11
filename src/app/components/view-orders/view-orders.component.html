@@ -1,0 +1,19 @@
+<mat-card class="example-card" *ngFor="let order of orders" style="width: 50%; margin: auto;">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Order Id: {{order.OrderId}}</mat-card-title> 
+    </mat-card-header>
+    <mat-card-content>
+        <p>
+        {{order.Name}}
+        </p>
+        <p>
+        {{order.Time}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button style="color:white; background-color: darkgreen;">Order</button>
+        <button mat-button style="color:white; background-color: darkgreen;">Call Waiter</button>
+        <!-- <button mat-button style="color:white; background-color: darkgreen;" disabled>Pay</button> -->
+    </mat-card-actions>
+</mat-card>
