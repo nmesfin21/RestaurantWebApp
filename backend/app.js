@@ -1,25 +1,51 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
+const Reservation = require('./models/reservation');
 
 const app = express();
+
+mongoose.connect('mongodb+srv://Nat:KVUZHHijyWO5bCLH@cluster0-tgajm.mongodb.net/restaurantDB?retryWrites=true&w=majority')
+.then(() =>{
+    console.log('connected to database');
+})
+.catch(() =>{
+    console.log('connection failed');
+});
 
 app.use(bodyParser.json())
 
 
 app.use((req, res, next) =>{
     res.setHeader("Access-Control-Allow-Origin", "*")
-    res.setHeader("Access-Control-AllowHeaders", "Origin, X-Requested-with, Content-Type, Accept");
+    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-with, Content-Type, Accept");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE, PUT, OPTIONS")
     next();
 })
 
 app.post("/api/reservation", (req, res, next) =>{
-    const menu = req.body;
-    console.log(menu);
+    const reservation = new Reservation({
+        Name: req.body.Name,
+        NumGuest: req.body.NumGuest
+    });
+    reservation.save();
     res.status(201).json({
-        message: 'poste added successfully'
+        message: 'reservation added successfully'
     });
 })
+
+app.get("/api/reservation", (req, res, next) =>{
+    Reservation.find()
+    .then(documents =>{
+        console.log(documents);
+    });
+    res.json({
+        message: 'reservation',
+    });
+});
+
+
 app.get("/api/menuitems", (req, res, next) =>{
     const menuItems = [
     {id: 1, Name: 'beyaynet', Price: 10, ImagePath: "../../../assets/images/beyaynet.jpg", Description: "some description"},

@@ -5,6 +5,7 @@ import { SeeMenuItemComponent } from './components/see-menu-item/see-menu-item.c
 import { HomeComponent } from './components/home/home.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
+import { ViewReservationComponent } from './components/view-reservation/view-reservation.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'home', component:HomeComponent},
   {path: 'reservation', component:ReservationComponent},
   {path: 'contactus', component:ContactusComponent},
+  {path: 'viewreservation', component:ViewReservationComponent},
   {path: '', component: SeeMenuItemComponent}
 ];
 

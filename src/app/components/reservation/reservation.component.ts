@@ -15,7 +15,12 @@ export class ReservationComponent implements OnInit {
   }
 
   submitReservation(form: NgForm){
-    alert('submit clicked');
+    this.reservationService.addReservation(form.value.guestName, form.value.numguest).subscribe(
+      response =>{
+        alert(response);
+      }
+    )
+    
   }
 
 }

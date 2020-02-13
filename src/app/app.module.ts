@@ -19,6 +19,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ViewReservationComponent } from './components/view-reservation/view-reservation.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     ViewOrdersComponent,
     HomeComponent,
     ReservationComponent,
-    ContactusComponent
+    ContactusComponent,
+    ViewReservationComponent
   ],
   imports: [
     BrowserModule,

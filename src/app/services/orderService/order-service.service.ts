@@ -41,6 +41,9 @@ export class OrderServiceService {
     const Reservation: IReservation = {id:null, Name: name, NumGuest: numberOfGuest}
     return this.http.post<({message: string})>("http://localhost:3000/api/reservation", Reservation)
   }
+  getReservation(){
+    
+  }
   getOrders(){
     return [...this.orders];
   }
