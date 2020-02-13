@@ -4,7 +4,8 @@ import {MatInputModule,
   MatCardModule,
   MatButtonModule,
   MatToolbarModule,
-  MatGridListModule} from '@angular/material';
+  MatGridListModule,
+  MatFormFieldModule} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { ViewOrdersComponent } from './components/view-orders/view-orders.compon
 import { HomeComponent } from './components/home/home.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import { ContactusComponent } from './components/contactus/contactus.component';
     MatButtonModule,
     MatToolbarModule,
     MatGridListModule,
+    MatFormFieldModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderServiceService } from 'src/app/services/orderService/order-service.service';
 import { IMenuItem } from 'src/app/interfaces/menuItem';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -10,10 +11,26 @@ import { IMenuItem } from 'src/app/interfaces/menuItem';
 })
 export class SeeMenuItemComponent implements OnInit {
   menues : IMenuItem[]
+  private menuItemSub: Subscription;
+
   constructor(private orderService: OrderServiceService) { }
 
   ngOnInit() {
-    this.menues = this.orderService.getMenues();
+    this.getMenu();
+  }
+
+  getMenu(){
+    this.orderService.getMenues().subscribe(
+      response =>{
+        this.menues = response.menuItems;
+      }
+    );
+  }
+
+  
+
+  ngOnDestroy(){
+    this.menuItemSub.unsubscribe();
   }
 
 }

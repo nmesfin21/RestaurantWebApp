@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { OrderServiceService } from 'src/app/services/orderService/order-service.service';
 
 @Component({
   selector: 'app-reservation',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private reservationService: OrderServiceService) { }
 
   ngOnInit() {
+  }
+
+  submitReservation(form: NgForm){
+    alert('submit clicked');
   }
 
 }

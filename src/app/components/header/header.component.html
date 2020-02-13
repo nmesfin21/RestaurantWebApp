@@ -1,6 +1,17 @@
-<mat-toolbar style="background-color: cornflowerblue;">
-    <span>My Restaurant</span>
-    <span class="spacer"></span>
-    <button mat-raised-button  (click)="goToOrders()"><span>View Order</span></button>
-    
-</mat-toolbar>
+<nav class="navbar navbar-expand-sm navbar-light" style="background-color:lightseagreen;">
+    <a class="navbar-brand" href="/home">
+      <!-- <img src="../assets/images/myimage.png" width="30" height="30" class="d-inline-block align-top" alt=""> -->
+      My Restaurant 
+    </a>
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" [ngClass]="{'show': navbaropen}">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-item nav-link" href="/home">About <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href='/menu'>Menu</a>
+        <a class="nav-item nav-link" href='/reservation'>Reservation</a>
+        <a class="nav-item nav-link" href='/contactus'>Contact US</a>
+      </div>
+    </div>
+  </nav>

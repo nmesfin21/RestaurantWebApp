@@ -1,1 +1,26 @@
-<p>reservation works!</p>
+<mat-card>
+    <form (submit)="submitReservation(reservationForm)" #reservationForm="ngForm">
+        <mat-form-field>
+            <input
+            matInput
+            type="text"
+            name="guestName"
+            placeholder="Guest Name"
+            ngModel
+            required>
+        </mat-form-field>
+        <mat-form-field>
+            <input
+            matInput
+            type="number"
+            name="numguest"
+            placeholder="number of guests"
+            ngModel
+            required>
+        </mat-form-field>
+        <button
+        mat-raised-button
+        color="accent"
+        type="submit">Submit Reservation</button>
+</form>
+</mat-card>
