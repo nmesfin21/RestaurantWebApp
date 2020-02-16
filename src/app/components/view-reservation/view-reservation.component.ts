@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IReservation } from 'src/app/interfaces/reservation';
+import { ReservationService } from 'src/app/services/reservationService/reservation.service';
 
 @Component({
   selector: 'app-view-reservation',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewReservationComponent implements OnInit {
 
-  constructor() { }
+  reservations: IReservation[];
+  constructor(private _reservationService: ReservationService) { }
 
   ngOnInit() {
+    this.getReservationFromService();
+  }
+
+  getReservationFromService(){
+    this._reservationService.getReservation().subscribe(
+      data =>{
+        this.reservations = data.reservation;
+        console.log(this.reservations);
+      },
+      error=>{
+        console.log('error: ', error);
+      },
+      () =>console.log('everything went great')
+    )
   }
 
 }

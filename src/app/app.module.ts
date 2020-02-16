@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ViewReservationComponent } from './components/view-reservation/view-reservation.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,7 @@ import { ViewReservationComponent } from './components/view-reservation/view-res
     HomeComponent,
     ReservationComponent,
     ContactusComponent,
-    ViewReservationComponent
+    ViewReservationComponent,
   ],
   imports: [
     BrowserModule,

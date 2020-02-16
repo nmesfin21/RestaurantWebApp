@@ -6,11 +6,11 @@ const Reservation = require('./models/reservation');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://Nat:KVUZHHijyWO5bCLH@cluster0-tgajm.mongodb.net/restaurantDB?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://Nat:KVUZHHijyWO5bCLH@cluster0-tgajm.mongodb.net/test?retryWrites=true&w=majority', { useUnifiedTopology: true })
 .then(() =>{
     console.log('connected to database');
 })
-.catch(() =>{
+.catch((error) =>{
     console.log('connection failed');
 });
 
@@ -27,8 +27,10 @@ app.use((req, res, next) =>{
 app.post("/api/reservation", (req, res, next) =>{
     const reservation = new Reservation({
         Name: req.body.Name,
-        NumGuest: req.body.NumGuest
+        NumGuest: req.body.NumGuest    
     });
+
+    console.log(reservation.Name + reservation.NumGuest);
     reservation.save();
     res.status(201).json({
         message: 'reservation added successfully'
@@ -36,13 +38,29 @@ app.post("/api/reservation", (req, res, next) =>{
 })
 
 app.get("/api/reservation", (req, res, next) =>{
-    Reservation.find()
-    .then(documents =>{
-        console.log(documents);
-    });
-    res.json({
-        message: 'reservation',
-    });
+    const Reservation = [
+        {id: '001', Name: 'beyaynet', NumGuest: 15},
+        {id: '002', Name: 'Martha', NumGuest: 36},
+        {id: '003', Name: 'Natty', NumGuest: 1},
+        {id: '004', Name: 'Leul', NumGuest: 4},
+        {id: '005', Name: 'Kebede', NumGuest: 3},
+        {id: '006', Name: 'Buna', NumGuest: 98},
+        {id: '007', Name: 'Coffee', NumGuest: 99},
+      ]
+
+      res.json(
+          {
+            message: 'reservation fetched!',
+            reservation: Reservation
+        }
+      )
+    //Reservation.find()
+    // .then(documents =>{
+    //     console.log(documents);
+    // });
+    // res.json({
+    //     message: 'reservation',
+    // });
 });
 
 

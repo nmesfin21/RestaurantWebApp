@@ -8,13 +8,14 @@ import { ContactusComponent } from './components/contactus/contactus.component';
 import { ViewReservationComponent } from './components/view-reservation/view-reservation.component';
 
 
+
 const routes: Routes = [
   {path: 'vieworders', component:ViewOrdersComponent},
   {path: 'menu', component:SeeMenuItemComponent},
   {path: 'home', component:HomeComponent},
   {path: 'reservation', component:ReservationComponent},
   {path: 'contactus', component:ContactusComponent},
-  {path: 'viewreservation', component:ViewReservationComponent},
+  {path: 'showreservation', component: ViewReservationComponent},
   {path: '', component: SeeMenuItemComponent}
 ];
 
