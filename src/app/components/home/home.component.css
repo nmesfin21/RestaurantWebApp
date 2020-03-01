@@ -1,0 +1,23 @@
+#section1 {
+    height: 680px;
+    background-repeat: no-repeat;
+    background-image:url("../../../assets/images/images/shekela.png"),url("../../../assets/images/images/kurt.png");
+  }
+
+
+  #section4 {
+    height:730px;
+    background-repeat: no-repeat;
+    background-color:#B0B0B0;
+  
+  }
+
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    color: white;
+    text-align: center;
+ }

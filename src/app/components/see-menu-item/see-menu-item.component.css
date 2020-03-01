@@ -1,0 +1,17 @@
+.meatoption{
+    background-image: url('../../../assets/images/images/Tibs.jpg');
+    height: 700px;
+}
+
+.meatoptiontext{
+    margin: 25px;
+}
+
+h2 span{
+    display: block;
+}
+
+.veggieoption{
+    background-image: url('../../../assets/images/images/veggies-1.jpg');
+    height: 700px;
+}

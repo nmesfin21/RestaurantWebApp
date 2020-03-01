@@ -6,11 +6,12 @@ const Reservation = require('./models/reservation');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://Nat:KVUZHHijyWO5bCLH@cluster0-tgajm.mongodb.net/test?retryWrites=true&w=majority', { useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://Nat:Ria0n2Fm8V0Dyo8q@cluster0-tgajm.mongodb.net/testRestaurantDB?retryWrites=true&w=majority')
 .then(() =>{
     console.log('connected to database');
 })
 .catch((error) =>{
+    console.log(error);
     console.log('connection failed');
 });
 
@@ -38,29 +39,25 @@ app.post("/api/reservation", (req, res, next) =>{
 })
 
 app.get("/api/reservation", (req, res, next) =>{
-    const Reservation = [
-        {id: '001', Name: 'beyaynet', NumGuest: 15},
-        {id: '002', Name: 'Martha', NumGuest: 36},
-        {id: '003', Name: 'Natty', NumGuest: 1},
-        {id: '004', Name: 'Leul', NumGuest: 4},
-        {id: '005', Name: 'Kebede', NumGuest: 3},
-        {id: '006', Name: 'Buna', NumGuest: 98},
-        {id: '007', Name: 'Coffee', NumGuest: 99},
-      ]
-
-      res.json(
-          {
-            message: 'reservation fetched!',
-            reservation: Reservation
-        }
-      )
-    //Reservation.find()
-    // .then(documents =>{
-    //     console.log(documents);
-    // });
-    // res.json({
-    //     message: 'reservation',
-    // });
+    // const Reservation = [
+    //     {id: '001', Name: 'beyaynet', NumGuest: 15},
+    //     {id: '002', Name: 'Martha', NumGuest: 36},
+    //     {id: '003', Name: 'Natty', NumGuest: 1},
+    //     {id: '004', Name: 'Leul', NumGuest: 4},
+    //     {id: '005', Name: 'Kebede', NumGuest: 3},
+    //     {id: '006', Name: 'Buna', NumGuest: 98},
+    //     {id: '007', Name: 'Coffee', NumGuest: 99},
+    //   ]
+    Reservation.find().then(documents =>{
+        res.json(
+            {
+                message: 'reservation fetched!',
+                reservation: documents
+            }
+        )
+    }).catch(error=>{
+        console.log(error);  
+    });
 });
 
 
